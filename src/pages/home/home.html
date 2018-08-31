@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>"TO DO LIST"</h2>
+  
+<ion-item>
+        <ion-input [(ngModel)]="todo" placeholder="add todo..." type="text"></ion-input>
+    </ion-item>
+
+    <button ion-button block outline (click)="add()" style="box-shadow: 10px 10px 8px gray">ADD TODO<ion-icon name="ios-create-outline"></ion-icon></button>
+
+    <ion-list>
+        
+        <ion-item-sliding *ngFor="let t of todos">
+            <ion-item>
+                {{t}}
+                <ion-icon name="more" item-end></ion-icon>
+            </ion-item>
+
+            <ion-item-options side="right" >
+                <button ion-button color="secondary" (click)="edit(t)">
+                    <ion-icon name="ios-create"></ion-icon> Edit
+                </button>
+
+                <button ion-button color="danger" (click)="delete(t)">
+                    <ion-icon name="trash"></ion-icon> Delete
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+
+</ion-content>
